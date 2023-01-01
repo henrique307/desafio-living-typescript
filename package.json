@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev": "tsc-watch --onSuccess \"nodemon --trace-deprecation ./dist/server.js\"",
     "start:prod": "node dist/server.js",
-    "test": "jest ./src",
+    "test": "jest --detectOpenHandles ./src",
     "test:watch": "jest ./src --watch",
     "test:coverage": "jest ./src --coverage",
     "compile": "tsc --watch"

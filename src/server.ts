@@ -1,4 +1,3 @@
-import { Stream } from "mongodb";
 import { app } from "./api/app";
 import { db } from "./api/config/mongoConfig";
 

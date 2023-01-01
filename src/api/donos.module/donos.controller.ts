@@ -64,7 +64,7 @@ abstract class DonosController {
 
     donoCriado.save((erro: NativeError) => {
       if (erro) {
-        res.status(500).send("Ocorreu um erro, tente novamente mais tarde!");
+        res.status(500).send(erro);
         return;
       }
 
