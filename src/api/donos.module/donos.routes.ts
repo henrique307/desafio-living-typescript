@@ -1,7 +1,10 @@
 import { Router } from "express";
-import { DonosController } from "./donos.controller";
+import { retornaController } from "./donos.controller";
+import { Donos } from "./donos.model";
 
 const donosRouter = Router();
+
+const DonosController = retornaController(Donos);
 
 donosRouter
   .get("/donos", DonosController.GET_Donos)
