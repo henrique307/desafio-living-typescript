@@ -7,7 +7,7 @@ import { Donos } from "./donos.model";
 function retornaController(database: any) {
   abstract class DonosController {
     static GET_Donos(req: Request, res: Response): void {
-      database.find(
+      return database.find(
         req.query,
         "-__v -pets",
         (error: Error, pets: typeof Donos[]) => {
@@ -22,7 +22,7 @@ function retornaController(database: any) {
     }
 
     static GET_Dono(req: Request, res: Response): void {
-      database.findById(
+      return database.findById(
         req.params.id,
         "-_id -__v",
         (erro: NativeError, dono: any) => {
@@ -89,7 +89,7 @@ function retornaController(database: any) {
         return;
       }
 
-      database.findByIdAndUpdate(
+      return database.findByIdAndUpdate(
         req.params.id,
         dono,
         (erro: NativeError, result: typeof Donos) => {
