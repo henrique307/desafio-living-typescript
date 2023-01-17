@@ -4,7 +4,7 @@ import { Pets } from "../pets.module/pets.model";
 import { DonosDTO } from "./donos.dto";
 import { Donos } from "./donos.model";
 
-function retornaController(database: any) {
+function retornaDonoController(database: any) {
   abstract class DonosController {
     static GET_Donos(req: Request, res: Response): void {
       return database.find(
@@ -31,6 +31,10 @@ function retornaController(database: any) {
             return;
           }
 
+          if (!dono) {
+            return res.status(404).send("ID não existe");
+          }
+
           Pets.find(
             { dono: dono._id },
             "nome idade raca",
@@ -54,12 +58,12 @@ function retornaController(database: any) {
         };
       });
 
-      dono.encryptaSenha();
-
       if (erros.length) {
         res.status(400).send(erros);
         return;
       }
+
+      dono.encryptaSenha();
 
       const donoCriado = new database(dono);
 
@@ -137,4 +141,4 @@ function retornaController(database: any) {
   return DonosController;
 }
 
-export { retornaController };
+export { retornaDonoController };

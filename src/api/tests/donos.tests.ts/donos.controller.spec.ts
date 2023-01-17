@@ -1,10 +1,10 @@
-import { retornaController } from "src/api/donos.module/donos.controller";
+import { retornaDonoController } from "src/api/donos.module/donos.controller";
 import { MockDonoDatabase } from "../__mocks__/DonosDatabase.mock";
 
 describe.skip("testando a controller da rota /donos", () => {
   let DonosController: any;
   beforeAll(() => {
-    DonosController = retornaController(MockDonoDatabase);
+    DonosController = retornaDonoController(MockDonoDatabase);
   });
 
   it("should GET all the 'donos' info", async () => {
@@ -76,7 +76,7 @@ describe.skip("testando a controller da rota /donos", () => {
     });
 
     const donoModificado: MockDonoDatabase = MockDonoDatabase.listaDonos.find(
-      (dono: MockDonoDatabase) => dono.nome === "Juliano"
+      (dono: MockDonoDatabase) => dono.nome === modificacaoDono.nome
     );
 
     expect(donoModificado).not.toBeUndefined();

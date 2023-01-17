@@ -21,5 +21,6 @@
     "noFallthroughCasesInSwitch": false,
     "resolveJsonModule": true
   },
-  "include": ["./src/**/*","./*.d.ts", ".env"]
+  "include": ["./src/**/*","./*.d.ts", ".env"],
+  "exclude": ["./src/teste.ts"]
 }

@@ -13,6 +13,8 @@ describe.skip("testando a DTO do modelo donos", () => {
       senha: "senha",
     });
 
+    donoTeste.encryptaSenha();
+
     validationErrors = await validate(donoTeste);
   });
 
@@ -35,6 +37,8 @@ describe.skip("testando a DTO do modelo donos", () => {
 
   test("se erros ocorrem como esperado", async () => {
     expect(validationErrors).toHaveLength(3);
+
+    console.log(validationErrors);
 
     expect(validationErrors[0].constraints).toEqual({
       isLength: "seu nome deve ter entre 5 e 30 caracteres",
