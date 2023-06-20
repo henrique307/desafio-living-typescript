@@ -5,11 +5,11 @@
   "main": "server.js",
   "scripts": {
     "start:dev": "tsc-watch --onSuccess \"nodemon --trace-deprecation ./dist/server.js\"",
-    "start:prod": "node dist/server.js",
     "test": "jest --detectOpenHandles ./src/api/tests",
     "test:watch": "jest ./src --watch",
     "test:coverage": "jest ./src --coverage",
-    "compile": "tsc --watch"
+    "start": "node dist/server.js",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/cors": "^2.8.13",
+    "@types/dotenv": "^8.2.0",
     "@types/jest": "^29.2.4",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
